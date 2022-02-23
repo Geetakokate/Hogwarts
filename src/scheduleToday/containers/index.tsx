@@ -5,12 +5,12 @@ import ScheduleToday from '../components';
 import { STUDENTS, TEACHERS } from '../constants';
 
 const ScheduleTodayContainer = () => {
-    useEffect(() => {
-        localStorage.setItem(TEACHERS, JSON.stringify(TEACHERS_LIST));
-        localStorage.setItem(STUDENTS, JSON.stringify(STUDENTS_LIST));
-    }, [])
+	useEffect(() => {
+		localStorage.setItem(TEACHERS, JSON.stringify(TEACHERS_LIST));
+		localStorage.setItem(STUDENTS, JSON.stringify(STUDENTS_LIST));
+	}, []);
 
-    return <ScheduleToday />;
+	return <ScheduleToday />;
 };
 
 export default ScheduleTodayContainer;

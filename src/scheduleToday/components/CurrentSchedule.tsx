@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, CardBody, CardTitle, Table } from 'reactstrap';
 import { ABSENT, ALL_SUBJECT, HIGHEST_PRIORITY, PRESENT } from '../constants';
 
 type Props = {
-	studentsList: Array<any>,
-	teachersList: Array<any>
-}
+	studentsList: Array<any>;
+	teachersList: Array<any>;
+};
 
 const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 	// Get present headMaster / headMistress
@@ -121,5 +121,5 @@ const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 export default CurrentSchedule;
 
 CurrentSchedule.propTypes = {
-	studentsList: PropTypes.array.isRequired
-}
+	studentsList: PropTypes.array.isRequired,
+};

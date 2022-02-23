@@ -7,20 +7,12 @@ export const STUDENTS_LIST = [
 				name: 'Potions Master',
 				assignedTeacher: 'Horace Slughorn',
 			},
-			{
-				name: 'Defense Against the Dark Arts',
-				assignedTeacher: '',
-			},
 		],
 	},
 	{
 		id: 2,
 		name: 'Hermione Granger',
 		subjects: [
-			{
-				name: 'Potions Master',
-				assignedTeacher: '',
-			},
 			{
 				name: 'Defense Against the Dark Arts',
 				assignedTeacher: '',
@@ -35,10 +27,6 @@ export const STUDENTS_LIST = [
 				name: 'Potions Master',
 				assignedTeacher: 'Severus Snape',
 			},
-			{
-				name: 'Defense Against the Dark Arts',
-				assignedTeacher: '',
-			},
 		],
 	},
 	{
@@ -49,20 +37,12 @@ export const STUDENTS_LIST = [
 				name: 'Potions Master',
 				assignedTeacher: 'Horace Slughorn',
 			},
-			{
-				name: 'Defense Against the Dark Arts',
-				assignedTeacher: '',
-			},
 		],
 	},
 	{
 		id: 5,
 		name: 'Padma Patil',
 		subjects: [
-			{
-				name: 'Potions Master',
-				assignedTeacher: '',
-			},
 			{
 				name: 'Defense Against the Dark Arts',
 				assignedTeacher: '',
@@ -76,10 +56,6 @@ export const STUDENTS_LIST = [
 			{
 				name: 'Potions Master',
 				assignedTeacher: 'Severus Snape',
-			},
-			{
-				name: 'Defense Against the Dark Arts',
-				assignedTeacher: '',
 			},
 		],
 	},

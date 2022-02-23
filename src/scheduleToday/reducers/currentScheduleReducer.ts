@@ -1,6 +1,4 @@
-import {
-	LIST_CURRENT_SCHEDULE_SUCCESS,
-} from '../actions/currentScheduleActions';
+import { LIST_CURRENT_SCHEDULE_SUCCESS } from '../actions/currentScheduleActions';
 
 const initialState = {
 	studentsList: [],
@@ -19,5 +17,3 @@ export default function currentScheduleReducer(state = initialState, action: any
 			};
 	}
 }
-
-

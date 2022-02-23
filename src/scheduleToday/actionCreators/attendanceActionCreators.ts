@@ -1,22 +1,20 @@
-import { LIST_TEACHER_ATTENDANCE_SUCCESS, UPDATE_TEACHER_ATTENDANCE_SUCCESS } from '../actions/attendanceActions';
 import { TEACHERS } from '../constants';
 
 export const getTeachersList = () => {
-	const teachers = JSON.parse(localStorage.getItem(TEACHERS) || "[]");
-
+	const teachers = JSON.parse(localStorage.getItem(TEACHERS) || '[]');
 	return (dispatch: any) => {
 		dispatch({
-			type: LIST_TEACHER_ATTENDANCE_SUCCESS,
+			type: 'LIST_TEACHER_ATTENDANCE_SUCCESS',
 			payload: teachers,
 		});
 	};
 };
 
 export const updateTeacherAttendance = (updatedTeacher: any) => {
-	const teachers = JSON.parse(localStorage.getItem(TEACHERS) || "[]");
+	const teachers = JSON.parse(localStorage.getItem(TEACHERS) || '[]');
 	teachers.filter((teacher: any) => {
-		if(teacher.id === updatedTeacher.id){
-			teacher.attendance = updatedTeacher.attendance
+		if (teacher.id === updatedTeacher.id) {
+			teacher.attendance = updatedTeacher.attendance;
 		}
 	});
 
@@ -24,8 +22,8 @@ export const updateTeacherAttendance = (updatedTeacher: any) => {
 
 	return (dispatch: any) => {
 		dispatch({
-			type: UPDATE_TEACHER_ATTENDANCE_SUCCESS,
-			payload: teachers
-		})
-	}
+			type: 'UPDATE_TEACHER_ATTENDANCE_SUCCESS',
+			payload: teachers,
+		});
+	};
 };

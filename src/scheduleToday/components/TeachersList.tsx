@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { Card, CardBody, CardTitle, Table } from 'reactstrap';
 import Switch from '../../switch';
@@ -10,9 +10,9 @@ const ATTENDANCE = [
 ];
 
 type Props = {
-	teachersList: Array<any>,
-	onAttendanceChange: any
-}
+	teachersList: Array<any>;
+	onAttendanceChange: any;
+};
 
 const TeachersList = ({ teachersList, onAttendanceChange }: Props) => {
 	return (
@@ -52,7 +52,6 @@ const TeachersList = ({ teachersList, onAttendanceChange }: Props) => {
 export default TeachersList;
 
 TeachersList.propTypes = {
-    teachersList: PropTypes.array.isRequired,
-    onAttendanceChange: PropTypes.func.isRequired
+	teachersList: PropTypes.array.isRequired,
+	onAttendanceChange: PropTypes.func.isRequired,
 };
-

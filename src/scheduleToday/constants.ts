@@ -6,5 +6,5 @@ export const HIGHEST_PRIORITY: any = {
 export const PRESENT = 'Present';
 export const ABSENT = 'Absent';
 export const ALL_SUBJECT = 'All';
-export const TEACHERS = "teachers";
-export const STUDENTS = "students";
+export const TEACHERS = 'teachers';
+export const STUDENTS = 'students';
