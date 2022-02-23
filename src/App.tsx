@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
-import ScheduleToday from './scheduleToday/components';
+import './App.scss';
+import ScheduleTodayContainer from './scheduleToday/containers';
 
 function App() {
-  return (
-    <div className="App">
-      <ScheduleToday />
-    </div>
-  );
+	return (
+		<div className="App">
+			<ScheduleTodayContainer />
+		</div>
+	);
 }
 
 export default App;
