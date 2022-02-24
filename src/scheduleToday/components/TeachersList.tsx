@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
-import { Card, CardBody, CardTitle, Table } from 'reactstrap';
-import Switch from '../../switch';
+import CardComponent from '../../components/CardComponent';
+import TableComponent from '../../components/TableComponent';
 
 const ATTENDANCE = [
 	{ value: 'Present', label: 'Present' },
@@ -16,36 +16,25 @@ type Props = {
 
 const TeachersList = ({ teachersList, onAttendanceChange }: Props) => {
 	return (
-		<Card className="scroll">
-			<CardTitle tag="h6" className="m-2">
-				Attendance
-			</CardTitle>
-			<CardBody>
-				<Table>
-					<thead>
-						<tr>
-							<th>Teacher</th>
-							<th>Attendance</th>
+		<CardComponent title="Attendance">
+			<TableComponent headers={['Teacher', 'Attendance']} config={{ className: '' }}>
+				<>
+					{teachersList.map((teacher: any) => (
+						<tr key={`teachers-${teacher.id}`}>
+							<td>{teacher.name}</td>
+							<td>
+								{/* <Switch id={`teacher-${teacher.id}`} /> */}
+								<Select
+									options={ATTENDANCE}
+									onChange={selected => onAttendanceChange(selected, teacher)}
+									defaultInputValue={teacher.attendance}
+								/>
+							</td>
 						</tr>
-					</thead>
-					<tbody>
-						{teachersList.map((teacher: any) => (
-							<tr key={`teachers-${teacher.id}`}>
-								<td>{teacher.name}</td>
-								<td>
-									{/* <Switch id={`teacher-${teacher.id}`} /> */}
-									<Select
-										options={ATTENDANCE}
-										onChange={selected => onAttendanceChange(selected, teacher)}
-										defaultInputValue={teacher.attendance}
-									/>
-								</td>
-							</tr>
-						))}
-					</tbody>
-				</Table>
-			</CardBody>
-		</Card>
+					))}
+				</>
+			</TableComponent>
+		</CardComponent>
 	);
 };
 

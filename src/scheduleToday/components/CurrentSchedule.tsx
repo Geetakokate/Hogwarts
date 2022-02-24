@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardBody, CardTitle, Table } from 'reactstrap';
 import { ABSENT, ALL_SUBJECT, HIGHEST_PRIORITY, PRESENT } from '../constants';
+import CardComponent from '../../components/CardComponent';
+import TableComponent from '../../components/TableComponent';
 
 type Props = {
 	studentsList: Array<any>;
@@ -9,6 +10,10 @@ type Props = {
 };
 
 const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
+	const tableConfig = {
+		className: 'current-schedule-table',
+	};
+
 	// Get present headMaster / headMistress
 	// if both present then get first in priority queue.
 	// else one of them is preset then return present one.
@@ -75,46 +80,29 @@ const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 	};
 
 	return (
-		<Card className="scroll">
-			<CardTitle tag="h6" className="m-2">
-				Current Schedule
-			</CardTitle>
-			<CardBody>
-				<Table className="current-schedule-table">
-					<thead>
-						<tr>
-							<th>Student</th>
-							<th>Subject</th>
-							<th>Teacher</th>
-						</tr>
-					</thead>
-					<tbody>
-						{studentsList.map((student: any) =>
-							student.subjects.map((subject: any, index: number) => {
-								return (
-									<tr key={`student-${student.id}-${index}`}>
-										{index === 0 ? (
-											<td rowSpan={student.subjects.length}>
-												{student.name}
-											</td>
-										) : null}
-										<td
-											key={`subject-${subject.name}-${subject.id}`}
-											className="word-wrap">
-											{subject.name}
-										</td>
-										<td
-											key={`subject-${subject.assignedTeacher}-${subject.id}`}>
-											{getAssignedTeacher(subject) || 'Not Assigned'}
-										</td>
-									</tr>
-								);
-							})
-						)}
-					</tbody>
-				</Table>
-			</CardBody>
-		</Card>
+		<CardComponent title="Current Schedule">
+			<TableComponent headers={['Student', 'Subject', 'Teacher']} config={tableConfig}>
+				<>
+					{studentsList.map((student: any) =>
+						student.subjects.map((subject: any, index: number) => (
+							<tr key={`student-${student.id}-${index}`}>
+								{index === 0 ? (
+									<td rowSpan={student.subjects.length}>{student.name}</td>
+								) : null}
+								<td
+									key={`subject-${subject.name}-${subject.id}`}
+									className="word-wrap">
+									{subject.name}
+								</td>
+								<td key={`subject-${subject.assignedTeacher}-${subject.id}`}>
+									{getAssignedTeacher(subject) || 'Not Assigned'}
+								</td>
+							</tr>
+						))
+					)}
+				</>
+			</TableComponent>
+		</CardComponent>
 	);
 };
 

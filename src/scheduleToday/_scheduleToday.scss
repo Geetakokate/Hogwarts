@@ -1,13 +1,17 @@
-.current-schedule-table {
-	table-layout: fixed;
-	width: 100%;
-}
+.schedule-page-wrapper {
+	display: block;
 
-.word-wrap {
-	word-wrap: break-word;
-}
+	.current-schedule-table {
+		table-layout: fixed;
+		width: 100%;
+	}
 
-.scroll {
-	height: 100%;
-	overflow-y: auto;
+	.word-wrap {
+		word-wrap: break-word;
+	}
+
+	.scroll {
+		height: 100%;
+		overflow-y: auto;
+	}
 }

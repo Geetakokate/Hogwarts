@@ -14,7 +14,7 @@ export const STUDENTS_LIST = [
 		name: 'Hermione Granger',
 		subjects: [
 			{
-				name: 'Defense Against the Dark Arts',
+				name: 'Potions Master',
 				assignedTeacher: '',
 			},
 		],
@@ -34,7 +34,7 @@ export const STUDENTS_LIST = [
 		name: 'Draco Malfoy',
 		subjects: [
 			{
-				name: 'Potions Master',
+				name: 'Defense Against the Dark Arts',
 				assignedTeacher: 'Horace Slughorn',
 			},
 		],

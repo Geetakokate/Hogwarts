@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, CardBody, CardTitle, Row, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 import { RootState } from '../reducers';
 import {
 	getTeachersList,
@@ -28,11 +28,9 @@ const ScheduleToday = () => {
 	};
 
 	return (
-		<Card className="m-2">
-			<CardTitle tag="h5" className="m-2">
-				Schedule Today
-			</CardTitle>
-			<CardBody>
+		<div className="schedule-page-wrapper">
+			<h4 className="m-4">Schedule Today</h4>
+			<Container>
 				<Row>
 					<Col>
 						<TeachersList
@@ -44,8 +42,8 @@ const ScheduleToday = () => {
 						<CurrentSchedule studentsList={studentsList} teachersList={teachersList} />
 					</Col>
 				</Row>
-			</CardBody>
-		</Card>
+			</Container>
+		</div>
 	);
 };
 
