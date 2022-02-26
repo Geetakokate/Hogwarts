@@ -94,7 +94,7 @@ const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 									className="word-wrap">
 									{subject.name}
 								</td>
-								<td key={`subject-${subject.assignedTeacher}-${subject.id}`}>
+								<td id={`subject-${subject.assignedTeacher}-${subject.id}`} key={`subject-${subject.assignedTeacher}-${subject.id}`}>
 									{getAssignedTeacher(subject) || 'Not Assigned'}
 								</td>
 							</tr>

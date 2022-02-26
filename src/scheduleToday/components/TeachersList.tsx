@@ -28,6 +28,7 @@ const TeachersList = ({ teachersList, onAttendanceChange }: Props) => {
 									options={ATTENDANCE}
 									onChange={selected => onAttendanceChange(selected, teacher)}
 									defaultInputValue={teacher.attendance}
+									data-testid={`teacher-attendance-${teacher.id}`}
 								/>
 							</td>
 						</tr>
