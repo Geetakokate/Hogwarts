@@ -30,7 +30,7 @@ defineFeature(feature, test => {
 		});
 
 		when('change one of teachers attendance to absent', () => {
-			testInstance.findByProps({'data-testid': 'teacher-attendance-1'}).props.onChange({value: "Absent", label: "Absent"});
+			testInstance.findByProps({ id: 'attendance-1-1' }).props.onClick();
 		});
 
 		then('should update in table', () => {

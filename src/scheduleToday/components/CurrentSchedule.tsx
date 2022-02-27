@@ -30,23 +30,21 @@ const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 		return higherPriorityTeachers[0]?.name;
 	};
 
-	const accessPresetTeacher = (subject: string, teachersObj: any) => {
+	const accessPresentTeacher = (subject: string, teachersObj: any) => {
 		// Check if max priority teacher
 		if (teachersObj.priority === HIGHEST_PRIORITY[subject]) {
 			return getPresentHeadTeacher();
 		} else {
 			// if not max priority
 			// get higher priority teacher in hierarchy
-			teachersList.filter(teacher => {
-				if (
-					teacher.priority === teachersObj.priority - 1 &&
-					teacher.attendance === PRESENT
-				) {
-					return teacher.name;
-				} else if (teacher.attendance === ABSENT) {
-					accessPresetTeacher(subject, teacher);
-				}
-			});
+			return (
+				teachersList.filter(
+					teacher =>
+						teacher.priority === teachersObj.priority - 1 &&
+						teacher.attendance === PRESENT &&
+						teacher.subject === subject
+				)[0]?.name || getPresentHeadTeacher()
+			);
 		}
 	};
 
@@ -73,7 +71,7 @@ const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 
 		// Get present Teacher if allocated teacher is absent
 		if (assignedTeacher && teacherObj && teacherObj.attendance === ABSENT) {
-			assignedTeacher = accessPresetTeacher(subject.name, teacherObj);
+			assignedTeacher = accessPresentTeacher(subject.name, teacherObj);
 		}
 
 		return assignedTeacher;
@@ -94,7 +92,9 @@ const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 									className="word-wrap">
 									{subject.name}
 								</td>
-								<td id={`subject-${subject.assignedTeacher}-${subject.id}`} key={`subject-${subject.assignedTeacher}-${subject.id}`}>
+								<td
+									id={`subject-${subject.assignedTeacher}-${subject.id}`}
+									key={`subject-${subject.assignedTeacher}-${subject.id}`}>
 									{getAssignedTeacher(subject) || 'Not Assigned'}
 								</td>
 							</tr>

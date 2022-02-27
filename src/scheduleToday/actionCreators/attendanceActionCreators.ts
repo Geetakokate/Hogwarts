@@ -1,3 +1,4 @@
+import { TEACHERS_LIST } from '../api/teachersApi';
 import { TEACHERS } from '../constants';
 
 export const getTeachersList = () => {
@@ -5,7 +6,7 @@ export const getTeachersList = () => {
 	return (dispatch: any) => {
 		dispatch({
 			type: 'LIST_TEACHER_ATTENDANCE_SUCCESS',
-			payload: teachers,
+			payload: teachers.length > 1 ? teachers : TEACHERS_LIST,
 		});
 	};
 };
@@ -23,7 +24,7 @@ export const updateTeacherAttendance = (updatedTeacher: any) => {
 	return (dispatch: any) => {
 		dispatch({
 			type: 'UPDATE_TEACHER_ATTENDANCE_SUCCESS',
-			payload: teachers,
+			payload: teachers.length > 1 ? teachers : TEACHERS_LIST,
 		});
 	};
 };
