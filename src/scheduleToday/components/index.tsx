@@ -9,6 +9,7 @@ import {
 import { getCurrentSchedule } from '../actionCreators/currentScheduleActionCreators';
 import CurrentSchedule from './CurrentSchedule';
 import TeachersList from './TeachersList';
+import TeachersHierarchy from './TeachersHierarchy';
 
 const ScheduleToday = () => {
 	const teachersList = useSelector((state: RootState) => state.attendance?.teachersList),
@@ -29,10 +30,12 @@ const ScheduleToday = () => {
 
 	return (
 		<div className="schedule-page-wrapper">
-			<h4 className="m-4">Schedule Today</h4>
+			<div className="border-bottom m-3">
+				<h4 className="m-2">Schedule Today</h4>
+			</div>
 			<Container>
-				<Row>
-					<Col>
+				<Row className="mb-4">
+					<Col sm={6}>
 						<TeachersList
 							teachersList={teachersList}
 							onAttendanceChange={onAttendanceChange}
@@ -42,6 +45,7 @@ const ScheduleToday = () => {
 						<CurrentSchedule studentsList={studentsList} teachersList={teachersList} />
 					</Col>
 				</Row>
+				<TeachersHierarchy />
 			</Container>
 		</div>
 	);

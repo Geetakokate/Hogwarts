@@ -4,6 +4,7 @@ export const STUDENTS_LIST = [
 		name: 'Harry Potter',
 		subjects: [
 			{
+				id: 1,
 				name: 'Potions Master',
 				assignedTeacher: 'Horace Slughorn',
 			},
@@ -14,6 +15,7 @@ export const STUDENTS_LIST = [
 		name: 'Hermione Granger',
 		subjects: [
 			{
+				id: 1,
 				name: 'Potions Master',
 				assignedTeacher: '',
 			},
@@ -24,6 +26,7 @@ export const STUDENTS_LIST = [
 		name: 'Ron Weasley',
 		subjects: [
 			{
+				id: 1,
 				name: 'Potions Master',
 				assignedTeacher: 'Severus Snape',
 			},
@@ -34,8 +37,9 @@ export const STUDENTS_LIST = [
 		name: 'Draco Malfoy',
 		subjects: [
 			{
+				id: 2,
 				name: 'Defense Against the Dark Arts',
-				assignedTeacher: 'Horace Slughorn',
+				assignedTeacher: 'Remus Lupin',
 			},
 		],
 	},
@@ -44,6 +48,7 @@ export const STUDENTS_LIST = [
 		name: 'Padma Patil',
 		subjects: [
 			{
+				id: 2,
 				name: 'Defense Against the Dark Arts',
 				assignedTeacher: '',
 			},
@@ -54,6 +59,7 @@ export const STUDENTS_LIST = [
 		name: 'Luna Lovegood',
 		subjects: [
 			{
+				id: 1,
 				name: 'Potions Master',
 				assignedTeacher: 'Severus Snape',
 			},

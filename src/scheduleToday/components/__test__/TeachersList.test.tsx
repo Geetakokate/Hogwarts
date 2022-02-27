@@ -8,6 +8,6 @@ describe('Attendance Component', () => {
 		render(<TeachersList teachersList={[]} onAttendanceChange={jest.fn()} />);
 		expect(screen.getByText('Attendance', { selector: 'th' })).toBeInTheDocument();
 		expect(screen.getByText('Teacher', { selector: 'th' })).toBeInTheDocument();
-		expect(screen.getByText('Attendance', { selector: 'h6' })).toBeInTheDocument();
+		expect(screen.getByText('Attendance', { selector: 'h5' })).toBeInTheDocument();
 	});
 });

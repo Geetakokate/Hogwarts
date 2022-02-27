@@ -11,7 +11,7 @@ describe('CardComponent test', () => {
 			</CardComponent>
 		);
 
-		expect(screen.getByText('Card Title', { selector: 'h6' })).toBeInTheDocument();
+		expect(screen.getByText('Card Title', { selector: 'h5' })).toBeInTheDocument();
 		expect(screen.getByText('Card Body', { selector: 'div' })).toBeInTheDocument();
 	});
 });

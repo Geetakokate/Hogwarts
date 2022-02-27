@@ -9,7 +9,7 @@ type Props = {
 const CardComponent = ({ title, children }: Props) => {
 	return (
 		<Card className="scroll">
-			<CardTitle tag="h6" className="m-2">
+			<CardTitle tag="h5" className="m-2">
 				{title}
 			</CardTitle>
 			<CardBody>{children}</CardBody>
