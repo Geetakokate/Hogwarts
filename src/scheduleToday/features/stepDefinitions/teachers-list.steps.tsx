@@ -9,11 +9,15 @@ const TEACHERS = [
 		id: 1,
 		name: 'Professor Dumbledore',
 		attendance: 'Present',
+		subject: 'All',
+		priority: 1,
 	},
 	{
 		id: 2,
 		name: 'Minerva McGonagall',
 		attendance: 'Present',
+		subject: 'All',
+		priority: 2,
 	},
 ];
 

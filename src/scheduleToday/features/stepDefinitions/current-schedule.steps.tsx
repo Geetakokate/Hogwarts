@@ -12,6 +12,7 @@ const STUDENTS = [
 		name: 'Harry Potter',
 		subjects: [
 			{
+				id: 1,
 				name: 'Potions Master',
 				assignedTeacher: 'Horace Slughorn',
 			},

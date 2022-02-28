@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Container } from 'reactstrap';
 import { RootState } from '../reducers';
+import { dropdownOptions, teacherObject } from './types';
 import {
 	getTeachersList,
 	updateTeacherAttendance,
@@ -21,7 +22,7 @@ const ScheduleToday = () => {
 		dispatch(getCurrentSchedule());
 	}, [dispatch]);
 
-	const onAttendanceChange = (selected: any, teacher: any) => {
+	const onAttendanceChange = (selected: dropdownOptions, teacher: teacherObject) => {
 		teacher.attendance = selected.value;
 		dispatch(updateTeacherAttendance(teacher));
 		dispatch(getTeachersList());

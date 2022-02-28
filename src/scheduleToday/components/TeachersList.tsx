@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { dropdownOptions, teacherObject } from './types';
 import CardComponent from '../../components/CardComponent';
 import TableComponent from '../../components/TableComponent';
 import { Dropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reactstrap';
@@ -10,7 +11,7 @@ const ATTENDANCE = [
 ];
 
 type Props = {
-	teachersList: Array<any>;
+	teachersList: Array<teacherObject>;
 	onAttendanceChange: any;
 };
 
@@ -18,20 +19,20 @@ const AttendanceDropDown = ({
 	teacher,
 	onAttendanceChange,
 }: {
-	teacher: any;
+	teacher: teacherObject;
 	onAttendanceChange: any;
 }) => {
 	const [isDropdownOpen, setDropdownOpenState] = useState(false);
 
 	const toggleDropdown = () => {
-		setDropdownOpenState((prevState: any) => !prevState);
+		setDropdownOpenState((prevState: boolean) => !prevState);
 	};
 
 	return (
 		<Dropdown isOpen={isDropdownOpen} toggle={toggleDropdown}>
 			<DropdownToggle caret>{teacher.attendance}</DropdownToggle>
 			<DropdownMenu>
-				{ATTENDANCE.map((attendance: any, index: number) => (
+				{ATTENDANCE.map((attendance: dropdownOptions, index: number) => (
 					<DropdownItem
 						id={`attendance-${teacher.id}-${index}`}
 						key={`attendance-${teacher.id}-${index}`}
@@ -49,7 +50,7 @@ const TeachersList = ({ teachersList, onAttendanceChange }: Props) => {
 		<CardComponent title="Attendance">
 			<TableComponent headers={['Teacher', 'Attendance']} config={{ className: '' }}>
 				<>
-					{teachersList.map((teacher: any) => (
+					{teachersList.map((teacher: teacherObject) => (
 						<tr key={`teachers-${teacher.id}`}>
 							<td>{teacher.name}</td>
 							<td>

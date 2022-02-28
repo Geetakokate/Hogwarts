@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { studentObject, studentsSubjectObject, teacherObject } from './types';
 import { ABSENT, ALL_SUBJECT, HIGHEST_PRIORITY, PRESENT } from '../constants';
 import CardComponent from '../../components/CardComponent';
 import TableComponent from '../../components/TableComponent';
 
 type Props = {
-	studentsList: Array<any>;
-	teachersList: Array<any>;
+	studentsList: Array<studentObject>;
+	teachersList: Array<teacherObject>;
 };
 
 const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
@@ -30,7 +31,7 @@ const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 		return higherPriorityTeachers[0]?.name;
 	};
 
-	const accessPresentTeacher = (subject: string, teachersObj: any) => {
+	const accessPresentTeacher = (subject: string, teachersObj: teacherObject) => {
 		// Check if max priority teacher
 		if (teachersObj.priority === HIGHEST_PRIORITY[subject]) {
 			return getPresentHeadTeacher();
@@ -48,21 +49,21 @@ const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 		}
 	};
 
-	const getAssignedTeacher = (subject: any) => {
+	const getAssignedTeacher = (subject: studentsSubjectObject) => {
 		let assignedTeacher = subject.assignedTeacher;
 		const teacherObj = teachersList.filter(teacher => teacher.name === assignedTeacher)[0];
 
 		if (!assignedTeacher) {
 			// Get highest priority teacher for specific subject
-			assignedTeacher = teachersList.filter(
+			const highestPriorityTeacher = teachersList.filter(
 				teacher =>
 					teacher.subject === subject.name &&
 					teacher.priority === HIGHEST_PRIORITY[subject.name] &&
 					teacher.attendance === PRESENT
 			)[0];
 
-			if (assignedTeacher) {
-				assignedTeacher = assignedTeacher.name;
+			if (highestPriorityTeacher) {
+				assignedTeacher = highestPriorityTeacher.name;
 			} else {
 				// if highest priority teacher is absent
 				assignedTeacher = getPresentHeadTeacher();
@@ -81,8 +82,8 @@ const CurrentSchedule = ({ studentsList, teachersList }: Props) => {
 		<CardComponent title="Current Schedule">
 			<TableComponent headers={['Student', 'Subject', 'Teacher']} config={tableConfig}>
 				<>
-					{studentsList.map((student: any) =>
-						student.subjects.map((subject: any, index: number) => (
+					{studentsList.map((student: studentObject) =>
+						student.subjects.map((subject: studentsSubjectObject, index: number) => (
 							<tr key={`student-${student.id}-${index}`}>
 								{index === 0 ? (
 									<td rowSpan={student.subjects.length}>{student.name}</td>
